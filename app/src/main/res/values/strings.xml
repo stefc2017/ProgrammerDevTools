@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Programmer Dev Tools</string>
+    <string name="enter_here">Enter here</string>
+    <string name="convert">Convert </string>
+    <string name="answer">Answer:   </string>
+    <string name="ConvertFrom"> Convert From </string>
+    <string name="ConvertTo"> Convert To </string>
+    <string name="binary"> Binary </string>
+    <string name="decimal"> Decimal </string>
+    <string name="hexadecimal"> Hexadecimal </string>
+    <string name="selectNumBits"> Select the number of bits for displaying the answer</string>
+    <string name="eight"> 8 </string>
+    <string name="sixteen"> 16 </string>
+    <string name="thirtytwo"> 32 </string>
+    <string name="sixtyfour"> 64 </string>
+    <string name="decbinhexconverter"> DecBinHex Converter </string>
+    <string name="sqlsimulator"> SQL simulator </string>
+    <string name="version"> Version: </string>
+    <string name="sql_description"> The SQL simulator is where programmers can practice coding SQL
+    and see how their code comes to life. This is used for studying purposes as well to understand
+    the basics of how and when to use SQL for databases. As more recent versions come out, more and
+    more features will be available. Study hard and have fun! </string>
+    <string name="createTable">Create a table</string>
+    <string name="viewTables">View tables</string>
+    <string name="addData">Insert data</string>
+    <string name="removeData">Remove data</string>
+
+</resources>
