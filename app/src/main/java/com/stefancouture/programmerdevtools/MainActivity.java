@@ -1,16 +1,10 @@
 package com.stefancouture.programmerdevtools;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
-import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         //get versionNumber
         VersionNumber versionNumber = new VersionNumber();
         buildNumber = versionNumber.getVersionNumber();
+
         //display on main page
         TextView mainTxtView = (TextView) findViewById(R.id.mainVersion);
         mainTxtView.setText(mainTxtView.getText() + " " + buildNumber);
