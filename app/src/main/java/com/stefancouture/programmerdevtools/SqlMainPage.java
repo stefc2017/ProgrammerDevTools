@@ -1,31 +1,28 @@
 package com.stefancouture.programmerdevtools;
 
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.content.Intent;
 
 public class SqlMainPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String versionNumber;
+        String buildNumber;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sql_homepage);
 
         //get versionNumber
-        versionNumber = getPackageVersionNum();
+        VersionNumber versionNumber = new VersionNumber();
+        buildNumber = versionNumber.getVersionNumber();
+
         //display on sqlconverter page
         TextView txtView = (TextView) findViewById(R.id.sqlconverterText);
-        txtView.setText(txtView.getText() + " " + versionNumber);
+        txtView.setText(txtView.getText() + " " + buildNumber);
     }
 
     public String getPackageVersionNum() {
@@ -37,5 +34,10 @@ public class SqlMainPage extends AppCompatActivity {
             e.printStackTrace();
         }
         return version;
+    }
+
+    public void createTable(View view){
+        Intent intent = new Intent(this, CreateTable.class);
+        startActivity(intent);
     }
 }

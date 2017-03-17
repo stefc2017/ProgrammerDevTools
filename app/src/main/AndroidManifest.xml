@@ -23,11 +23,16 @@
 
         <activity android:name=".DisplayConverter"
         android:label="DecBinHex Converter">
-    </activity>
+        </activity>
 
         <activity android:name=".SqlMainPage"
             android:label="SQL simulator">
         </activity>
+
+        <activity android:name=".CreateTable"
+            android:label="Create a new table">
+        </activity>
+
     </application>
 
 </manifest>

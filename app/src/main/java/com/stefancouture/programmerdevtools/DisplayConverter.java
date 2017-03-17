@@ -29,17 +29,18 @@ public class DisplayConverter extends AppCompatActivity {
         final RadioButton decimal_Left;
         final RadioButton hexadecimal_Left;
         String input = "";
-        String versionNumber;
+        String buildNumber;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.converter);
 
         //get versionNumber
-        versionNumber = getPackageVersionNum();
+        VersionNumber versionNumber = new VersionNumber();
+        buildNumber = versionNumber.getVersionNumber();
 
         //display on converter page
         TextView converterTxtView = (TextView) findViewById(R.id.converterVersion);
-        converterTxtView.setText(converterTxtView.getText() + " " + versionNumber);
+        converterTxtView.setText(converterTxtView.getText() + " " + buildNumber);
 
         editText = (EditText)findViewById(R.id.message);
         input = editText.getText().toString();
@@ -102,17 +103,6 @@ public class DisplayConverter extends AppCompatActivity {
             }//end afterTextChanged
         });
     }//end onCreate
-
-    public String getPackageVersionNum() {
-        String version = null;
-        try {
-            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-            version = pInfo.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return version;
-    }
 
     public Boolean hasSpecialChars(String text){
         Pattern specialChars = Pattern.compile("[^A-Za-z0-9]");

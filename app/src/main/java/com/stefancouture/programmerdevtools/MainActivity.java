@@ -16,26 +16,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String versionNumber;
+        String buildNumber;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //get versionNumber
-        versionNumber = getPackageVersionNum();
+        VersionNumber versionNumber = new VersionNumber();
+        buildNumber = versionNumber.getVersionNumber();
         //display on main page
         TextView mainTxtView = (TextView) findViewById(R.id.mainVersion);
-        mainTxtView.setText(mainTxtView.getText() + " " + versionNumber);
-    }
-
-    public String getPackageVersionNum() {
-        String version = null;
-        try {
-            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-            version = pInfo.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return version;
+        mainTxtView.setText(mainTxtView.getText() + " " + buildNumber);
     }
 
     public void loadConverter(View view){
