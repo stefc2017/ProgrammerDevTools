@@ -25,41 +25,19 @@
         android:layout_centerInParent="true"
         android:text="@string/version"/>
 
-    <Button android:id="@+id/createTable"
+    <Button android:id="@+id/viewTable"
         android:layout_width="154dp"
         android:layout_height="wrap_content"
-        android:theme="@style/primaryButton"
+        android:theme="@style/infoButton"
         android:layout_marginTop="48dp"
-        android:text="@string/createTable"
+        android:text="@string/viewTable"
         android:layout_below="@+id/desc_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="44dp"
         android:layout_marginStart="44dp"
-        android:drawableLeft="@drawable/create"
-        android:onClick="createTable"/>
-
-    <Button android:id="@+id/create_help"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/help"
-        android:paddingBottom="20dp"
-        android:layout_marginRight="100dp"
-        android:layout_alignBaseline="@+id/createTable"
-        android:layout_alignParentRight="true" />
-
-    <Button android:id="@+id/viewTables"
-        android:layout_width="154dp"
-        android:layout_height="wrap_content"
-        android:theme="@style/infoButton"
-        android:layout_marginTop="20dp"
-        android:text="@string/viewTables"
-        android:layout_below="@+id/createTable"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="44dp"
-        android:layout_marginStart="44dp"
-        android:drawableLeft="@drawable/view"/>
+        android:drawableLeft="@drawable/view"
+        android:textAllCaps="false"/>
 
     <Button android:id="@+id/view_help"
         android:layout_width="30dp"
@@ -67,7 +45,7 @@
         android:background="@drawable/help"
         android:paddingBottom="20dp"
         android:layout_marginRight="100dp"
-        android:layout_alignBaseline="@+id/viewTables"
+        android:layout_alignBaseline="@+id/viewTable"
         android:layout_alignParentRight="true" />
 
     <Button android:id="@+id/addData"
@@ -76,12 +54,14 @@
         android:theme="@style/addButton"
         android:layout_marginTop="20dp"
         android:text="@string/addData"
-        android:layout_below="@+id/viewTables"
+        android:layout_below="@+id/viewTable"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="44dp"
         android:layout_marginStart="44dp"
-        android:drawableLeft="@drawable/add"/>
+        android:drawableLeft="@drawable/add"
+        android:textAllCaps="false"
+        android:onClick="addData"/>
 
     <Button android:id="@+id/insert_help"
         android:layout_width="30dp"
@@ -103,7 +83,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="44dp"
         android:layout_marginStart="44dp"
-        android:drawableLeft="@drawable/delete"/>
+        android:drawableLeft="@drawable/delete"
+        android:textAllCaps="false"/>
 
     <Button android:id="@+id/remove_help"
         android:layout_width="30dp"
@@ -113,4 +94,28 @@
         android:layout_marginRight="100dp"
         android:layout_alignBaseline="@+id/removeData"
         android:layout_alignParentRight="true" />
+
+    <Button android:id="@+id/searchData"
+        android:layout_width="154dp"
+        android:layout_height="45dp"
+        android:theme="@style/searchButton"
+        android:layout_marginTop="20dp"
+        android:text="@string/searchData"
+        android:layout_below="@+id/removeData"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:drawableLeft="@drawable/search"
+        android:textAllCaps="false"/>
+
+    <Button android:id="@+id/search_help"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/help"
+        android:paddingBottom="20dp"
+        android:layout_marginRight="100dp"
+        android:layout_alignBaseline="@+id/searchData"
+        android:layout_alignParentRight="true" />
+
 </RelativeLayout>

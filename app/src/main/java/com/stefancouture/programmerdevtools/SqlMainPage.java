@@ -12,17 +12,16 @@ public class SqlMainPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String buildNumber;
+        String versionNumber;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sql_homepage);
 
         //get versionNumber
-        VersionNumber versionNumber = new VersionNumber();
-        buildNumber = versionNumber.getVersionNumber();
+        versionNumber = getPackageVersionNum();
 
         //display on sqlconverter page
         TextView txtView = (TextView) findViewById(R.id.sqlconverterText);
-        txtView.setText(txtView.getText() + " " + buildNumber);
+        txtView.setText(txtView.getText() + " " + versionNumber);
     }
 
     public String getPackageVersionNum() {
@@ -36,8 +35,8 @@ public class SqlMainPage extends AppCompatActivity {
         return version;
     }
 
-    public void createTable(View view){
-        Intent intent = new Intent(this, CreateTable.class);
+    public void addData(View view){
+        Intent intent = new Intent(this, AddData.class);
         startActivity(intent);
     }
 }

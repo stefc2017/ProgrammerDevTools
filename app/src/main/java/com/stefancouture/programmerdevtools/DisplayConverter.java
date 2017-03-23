@@ -1,5 +1,7 @@
 package com.stefancouture.programmerdevtools;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -26,18 +28,17 @@ public class DisplayConverter extends AppCompatActivity {
         final RadioButton decimal_Left;
         final RadioButton hexadecimal_Left;
         String input = "";
-        String buildNumber;
+        String versionNumber;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.converter);
 
         //get versionNumber
-        VersionNumber versionNumber = new VersionNumber();
-        buildNumber = versionNumber.getVersionNumber();
+        versionNumber = getPackageVersionNum();
 
         //display on converter page
         TextView converterTxtView = (TextView) findViewById(R.id.converterVersion);
-        converterTxtView.setText(converterTxtView.getText() + " " + buildNumber);
+        converterTxtView.setText(converterTxtView.getText() + " " + versionNumber);
 
         editText = (EditText)findViewById(R.id.message);
         input = editText.getText().toString();
@@ -100,6 +101,17 @@ public class DisplayConverter extends AppCompatActivity {
             }//end afterTextChanged
         });
     }//end onCreate
+
+    public String getPackageVersionNum() {
+        String version = null;
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            version = pInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return version;
+    }
 
     public Boolean hasSpecialChars(String text){
         Pattern specialChars = Pattern.compile("[^A-Za-z0-9]");

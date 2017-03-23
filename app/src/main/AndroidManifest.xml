@@ -29,8 +29,8 @@
             android:label="SQL simulator">
         </activity>
 
-        <activity android:name=".CreateTable"
-            android:label="Create a new table">
+        <activity android:name=".AddData"
+            android:label="Insert data into table">
         </activity>
 
     </application>

@@ -21,8 +21,23 @@
     the basics of how and when to use SQL for databases. As more recent versions come out, more and
     more features will be available. Study hard and have fun! </string>
     <string name="createTable">Create a table</string>
-    <string name="viewTables">View tables</string>
+    <string name="viewTable">View table</string>
     <string name="addData">Insert data</string>
     <string name="removeData">Remove data</string>
+    <string name="table_name"> Table name: </string>
+    <string name="sqlStatement"> SQL query: </string>
+    <string name="save"> Save </string>
+    <string name="cancel"> Cancel </string>
+    <string name="insert_data"> Insert data </string>
+    <string name="question_insert_data"> Are you sure you want to insert data in this table? </string>
+    <string name="confirm"> Confirm </string>
+    <string name="question_cancel_insert"> Are you sure you want to cancel inserting into this table?</string>
+    <string name="cancel_insert"> Cancel insertion</string>
+    <string name="searchData"> Search </string>
+    <string name="students"> Students </string>
+    <string name="tablecontents"> <u> Table contents </u> </string>
+    <String name="int_word"> Integer </String>
+    <String name="double"> Double </String>
+    <String name="string"> String </String>
 
 </resources>
