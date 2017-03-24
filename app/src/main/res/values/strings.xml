@@ -36,8 +36,12 @@
     <string name="searchData"> Search </string>
     <string name="students"> Students </string>
     <string name="tablecontents"> <u> Table contents </u> </string>
-    <String name="int_word"> Integer </String>
-    <String name="double"> Double </String>
-    <String name="string"> String </String>
-
+    <string name="int_word"> Int </string>
+    <string name="double_word"> Double </string>
+    <string name="string_word"> String </string>
+    <string name="StudNum"> Stud # </string>
+    <string name="Fname"> Fname </string>
+    <string name="Lname"> Lname </string>
+    <string name="age"> Age </string>
+    <string name="gpa"> GPA </string>
 </resources>

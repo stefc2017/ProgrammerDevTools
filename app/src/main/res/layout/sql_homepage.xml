@@ -48,13 +48,36 @@
         android:layout_alignBaseline="@+id/viewTable"
         android:layout_alignParentRight="true" />
 
+    <Button android:id="@+id/searchData"
+        android:layout_width="154dp"
+        android:layout_height="45dp"
+        android:theme="@style/searchButton"
+        android:layout_marginTop="20dp"
+        android:text="@string/searchData"
+        android:layout_below="@+id/viewTable"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:drawableLeft="@drawable/search"
+        android:textAllCaps="false"/>
+
+    <Button android:id="@+id/search_help"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/help"
+        android:paddingBottom="20dp"
+        android:layout_marginRight="100dp"
+        android:layout_alignBaseline="@+id/searchData"
+        android:layout_alignParentRight="true" />
+
     <Button android:id="@+id/addData"
         android:layout_width="154dp"
         android:layout_height="wrap_content"
         android:theme="@style/addButton"
         android:layout_marginTop="20dp"
         android:text="@string/addData"
-        android:layout_below="@+id/viewTable"
+        android:layout_below="@+id/searchData"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="44dp"
@@ -95,27 +118,5 @@
         android:layout_alignBaseline="@+id/removeData"
         android:layout_alignParentRight="true" />
 
-    <Button android:id="@+id/searchData"
-        android:layout_width="154dp"
-        android:layout_height="45dp"
-        android:theme="@style/searchButton"
-        android:layout_marginTop="20dp"
-        android:text="@string/searchData"
-        android:layout_below="@+id/removeData"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="44dp"
-        android:layout_marginStart="44dp"
-        android:drawableLeft="@drawable/search"
-        android:textAllCaps="false"/>
-
-    <Button android:id="@+id/search_help"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/help"
-        android:paddingBottom="20dp"
-        android:layout_marginRight="100dp"
-        android:layout_alignBaseline="@+id/searchData"
-        android:layout_alignParentRight="true" />
 
 </RelativeLayout>

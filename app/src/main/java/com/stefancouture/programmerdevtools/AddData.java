@@ -1,10 +1,12 @@
 package com.stefancouture.programmerdevtools;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +14,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddData extends AppCompatActivity {
 
-    private DBHelper mydb ;
+    private DBHelper mydb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,7 @@ public class AddData extends AppCompatActivity {
         setContentView(R.layout.insert_data);
 
         mydb = new DBHelper(this);
-Log.d("asasaasasasa " + mydb.getCount() + " ", " yay");
+
         //get versionNumber
         versionNumber = getPackageVersionNum();
 
@@ -54,12 +57,15 @@ Log.d("asasaasasasa " + mydb.getCount() + " ", " yay");
         builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id) {
                 //User clicked confirm
+                boolean isValid;
 
-                mydb.insert(query);
                 //add to database here
+                isValid = mydb.insert(query);
 
                 Intent intent = new Intent(AddData.this, SqlMainPage.class);
                 startActivity(intent);
+
+                showNotification(isValid);
             }//end onClick
         });//end confirmButton
 
@@ -75,6 +81,22 @@ Log.d("asasaasasasa " + mydb.getCount() + " ", " yay");
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+
+    private void showNotification(boolean isValid){
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_LONG;
+        String text = "";
+
+        if(isValid)
+            text = "Successfully added to the database";
+        else
+            text = "Unsuccessfully added to the database";
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
     }
 
     public void cancel(View view){
