@@ -33,6 +33,10 @@
     <string name="confirm"> Confirm </string>
     <string name="question_cancel_insert"> Are you sure you want to cancel inserting into this table?</string>
     <string name="cancel_insert"> Cancel insertion</string>
+    <string name="question_cancel_viewTable"> Are you sure you want to cancel trying to view this table?</string>
+    <string name="cancel_viewTable"> Cancel viewing table</string>
+    <string name="question_confirm_viewTable"> Are you sure you want to view this table?</string>
+    <string name="confirm_viewTable"> Confirm view table</string>
     <string name="searchData"> Search </string>
     <string name="students"> Students </string>
     <string name="tablecontents"> <u> Table contents </u> </string>
@@ -44,4 +48,26 @@
     <string name="Lname"> Lname </string>
     <string name="age"> Age </string>
     <string name="gpa"> GPA </string>
+    <string name="rowsToDisplay"> Rows to display: </string>
+    <string name="sortBy"> Sort by: </string>
+    <string name="view"> View </string>
+
+    <string-array name="numOfRows">
+        <item> 10 </item>
+        <item> 25 </item>
+        <item> 50 </item>
+        <item> 100 </item>
+    </string-array>
+
+    <string-array name="students_columns">
+        <item> Student #</item>
+        <item> First name </item>
+        <item> Last name </item>
+        <item> GPA </item>
+    </string-array>
+
+    <string-array name="ascDesc">
+        <item> Ascending </item>
+        <item> Descending </item>
+    </string-array>
 </resources>

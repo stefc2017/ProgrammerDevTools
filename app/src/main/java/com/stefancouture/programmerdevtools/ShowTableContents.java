@@ -4,24 +4,33 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.content.Intent;
 
-public class SqlMainPage extends AppCompatActivity {
+public class ShowTableContents extends AppCompatActivity {
+
+    private DBHelper mydb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String versionNumber;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sql_homepage);
+        setContentView(R.layout.show_table_contents);
 
+        mydb = new DBHelper(this);
+
+        Object [] items = mydb.getAllSortedBy("student_number", "ASC");
+
+        Log.d("HEHEHEHEHEHHEHEHE", items[0] + " ");
         //get versionNumber
         versionNumber = getPackageVersionNum();
 
-        //display on sqlconverter page
-        TextView txtView = (TextView) findViewById(R.id.sqlconverterText);
-        txtView.setText(txtView.getText() + " " + versionNumber);
+        //display on ShowTableContents page
+        TextView textView = (TextView) findViewById(R.id.table_contents_version);
+        textView.setText(textView.getText() + " " + versionNumber);
+
     }
 
     public String getPackageVersionNum() {
@@ -33,15 +42,5 @@ public class SqlMainPage extends AppCompatActivity {
             e.printStackTrace();
         }
         return version;
-    }
-
-    public void addData(View view){
-        Intent intent = new Intent(this, AddData.class);
-        startActivity(intent);
-    }
-
-    public void viewTable(View view){
-        Intent intent = new Intent(this, ViewTable.class);
-        startActivity(intent);
     }
 }

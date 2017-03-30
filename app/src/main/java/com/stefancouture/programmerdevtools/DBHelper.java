@@ -49,6 +49,33 @@ public class DBHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public Object [] getAllSortedBy(String column, String order){
+        Object [] items;
+        int numberOfRows;
+        int numberOfCols;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + STUDENTS_TABLE_NAME;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        numberOfRows = cursor.getCount();
+        numberOfCols = cursor.getColumnCount();
+
+        items = new Object[numberOfRows];
+        cursor.moveToFirst();
+
+//        for(int i = 0; i < numberOfRows; i++){
+//
+//        }
+        if(cursor.moveToFirst()){
+            items[0] = cursor.getString(cursor.getColumnIndex("student_number"));
+            Log.d("dfdfdfdfd", " " + items[0]);
+        }
+        cursor.close();
+        return items;
+    }
     public boolean insert(String query){
         boolean isValid = true;
         SQLiteDatabase db = this.getWritableDatabase();

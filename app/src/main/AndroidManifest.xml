@@ -33,6 +33,14 @@
             android:label="Insert data into table">
         </activity>
 
+        <activity android:name=".ViewTable"
+            android:label="View table">
+        </activity>
+
+        <activity android:name=".ShowTableContents"
+            android:label=" Table contents">
+        </activity>
+
     </application>
 
 </manifest>

@@ -7,8 +7,8 @@ android {
         applicationId "com.stefancouture.programmerdevtools"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 5
-        versionName "P0B5"
+        versionCode 6
+        versionName "P0B6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
