@@ -53,6 +53,7 @@ public class ViewTable extends AppCompatActivity {
                 android.R.layout.simple_spinner_item);
         spinner_order.setAdapter(adapter_order);
 
+
     }
 
     public String getPackageVersionNum() {
@@ -67,6 +68,17 @@ public class ViewTable extends AppCompatActivity {
     }
 
     public void showTableContents(View view){
+        final String [] values = new String[3];
+
+        //get selected column to sort by
+        values[0] = getSelectedColumn();
+
+        //get selected order (asc/desc) to sort by
+        values[1] = getSelectedOrder();
+
+        //get selected number of rows to display
+        values[2] = getSelectedRowCount();
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         //Add the buttons
@@ -74,6 +86,7 @@ public class ViewTable extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int id) {
                 //User clicked confirm
                 Intent intent = new Intent(ViewTable.this, ShowTableContents.class);
+                intent.putExtra("object", values);
                 startActivity(intent);
             }//end onClick
         });//end confirmButton
@@ -90,6 +103,36 @@ public class ViewTable extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public String getSelectedColumn(){
+        String result = " ";
+
+        //get selected column to sort by
+        Spinner spinner_cols = (Spinner) findViewById(R.id.sortByColumns_selector);
+        result = spinner_cols.getSelectedItem().toString();
+
+        return result;
+    }
+
+    public String getSelectedOrder(){
+        String result = " ";
+
+        //get selected order (asc/desc) to sort by
+        Spinner spinner_order = (Spinner) findViewById(R.id.ascDesc_selector);
+        result = spinner_order.getSelectedItem().toString();
+
+        return result;
+    }
+
+    public String getSelectedRowCount(){
+        String result = " ";
+
+        //get selected number of rows to display
+        Spinner spinner_rows = (Spinner) findViewById(R.id.rowsToDisplay_selector);
+        result = spinner_rows.getSelectedItem().toString();
+
+        return result;
     }
 
     public void cancel(View view){

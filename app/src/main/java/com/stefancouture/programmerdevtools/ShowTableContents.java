@@ -5,6 +5,8 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,15 +17,23 @@ public class ShowTableContents extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String versionNumber;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_table_contents);
 
+        String versionNumber;
+        String [] values;
+
+        values = getIntent().getStringArrayExtra("object");
+
         mydb = new DBHelper(this);
 
-        Object [] items = mydb.getAllSortedBy("student_number", "ASC");
+        ListItems [] items = mydb.getAllSortedBy(values[0], values[1]);
 
-        Log.d("HEHEHEHEHEHHEHEHE", items[0] + " ");
+        Log.d("Chosen value:", values[2]);
+        for(int i = 0; i < items.length; i++) {
+            Log.d("HEHEHEHEHEHHEHEHE" + i, items[i].getStudId() + " " + items[i].getFirstName() + " " +
+                    items[i].getLastName() + " " + items[i].getGpa() + " ");
+        }
         //get versionNumber
         versionNumber = getPackageVersionNum();
 

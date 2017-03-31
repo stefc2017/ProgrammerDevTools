@@ -49,33 +49,77 @@ public class DBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public Object [] getAllSortedBy(String column, String order){
-        Object [] items;
+    public ListItems [] getAllSortedBy(String column, String order){
+        ListItems [] items;
+        String colName;
+        String orderBy;
         int numberOfRows;
-        int numberOfCols;
+
+        colName = getSQLColumnName(column);
+        orderBy = getSQLOrderName(order);
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String query = "SELECT * FROM " + STUDENTS_TABLE_NAME;
+        String query = "SELECT * FROM " + STUDENTS_TABLE_NAME + " " +
+                        "ORDER BY " + colName + " " + orderBy;
 
         Cursor cursor = db.rawQuery(query, null);
 
         numberOfRows = cursor.getCount();
-        numberOfCols = cursor.getColumnCount();
 
-        items = new Object[numberOfRows];
+        items = new ListItems[numberOfRows];
+        items = initialize(items, numberOfRows);
+
         cursor.moveToFirst();
 
-//        for(int i = 0; i < numberOfRows; i++){
-//
-//        }
-        if(cursor.moveToFirst()){
-            items[0] = cursor.getString(cursor.getColumnIndex("student_number"));
-            Log.d("dfdfdfdfd", " " + items[0]);
+        for(int i = 0; i < numberOfRows; i++){
+            items[i].setStudId(cursor.getString(cursor.getColumnIndex("student_number")));
+            items[i].setFirstName(cursor.getString(cursor.getColumnIndex("first_name")));
+            items[i].setLastName(cursor.getString(cursor.getColumnIndex("last_name")));
+            items[i].setGpa(cursor.getString(cursor.getColumnIndex("gpa")));
+
+            cursor.moveToNext();
         }
         cursor.close();
         return items;
     }
+
+    public String getSQLColumnName(String column){
+        String result = " ";
+
+        if(column.equals("Student #"))
+            result = "student_number";
+        else if(column.equals("First name"))
+            result = "first_name";
+        else if(column.equals("Last name"))
+            result = "last_name";
+        else if(column.equals("Gpa"))
+            result = "gpa";
+
+        return result;
+    }
+
+    public String getSQLOrderName(String order){
+        String result = " ";
+
+        if(order.equals("Ascending"))
+            result = "";
+        else if(order.equals("Descending"))
+            result = "DESC";
+
+        return result;
+    }
+
+    public ListItems [] initialize(ListItems [] list, int count){
+        ListItems [] listToReturn = list;
+
+        for(int i = 0; i < count; i++){
+            listToReturn[i] = new ListItems();
+        }
+
+        return listToReturn;
+    }
+
     public boolean insert(String query){
         boolean isValid = true;
         SQLiteDatabase db = this.getWritableDatabase();
