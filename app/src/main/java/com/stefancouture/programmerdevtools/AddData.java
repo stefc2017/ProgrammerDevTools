@@ -77,7 +77,7 @@ public class AddData extends AppCompatActivity {
 
         builder.setMessage(R.string.question_insert_data)
                 .setTitle(R.string.insert_data)
-                .setIcon(R.drawable.question);
+                .setIcon(R.drawable.help);
 
         AlertDialog dialog = builder.create();
         dialog.show();

@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 public class ViewTable extends AppCompatActivity {
 
+    private TableInformation tableInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String versionNumber;
@@ -69,6 +71,7 @@ public class ViewTable extends AppCompatActivity {
 
     public void showTableContents(View view){
         final String [] values = new String[3];
+        tableInfo = new TableInformation();
 
         //get selected column to sort by
         values[0] = getSelectedColumn();
@@ -86,7 +89,11 @@ public class ViewTable extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int id) {
                 //User clicked confirm
                 Intent intent = new Intent(ViewTable.this, ShowTableContents.class);
-                intent.putExtra("object", values);
+
+                tableInfo.setStart(0);
+                tableInfo.setcolumnSortBy(values[0]);
+                tableInfo.setOrder(values[1]);
+                tableInfo.setDisplayNumber(Integer.parseInt(values[2]));
                 startActivity(intent);
             }//end onClick
         });//end confirmButton
@@ -99,7 +106,7 @@ public class ViewTable extends AppCompatActivity {
 
         builder.setMessage(R.string.question_confirm_viewTable)
                 .setTitle(R.string.confirm_viewTable)
-                .setIcon(R.drawable.question);
+                .setIcon(R.drawable.help);
 
         AlertDialog dialog = builder.create();
         dialog.show();
