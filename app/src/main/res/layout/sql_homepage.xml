@@ -47,7 +47,8 @@
         android:paddingBottom="20dp"
         android:layout_marginRight="100dp"
         android:layout_alignBaseline="@+id/viewTable"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:onClick="viewDataInformation"/>
 
     <Button android:id="@+id/searchData"
         android:layout_width="154dp"
@@ -94,7 +95,8 @@
         android:paddingBottom="20dp"
         android:layout_marginRight="100dp"
         android:layout_alignBaseline="@+id/addData"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:onClick="insertInformation"/>
 
     <Button android:id="@+id/removeData"
         android:layout_width="154dp"

@@ -51,6 +51,14 @@
     <string name="rowsToDisplay"> Rows to display: </string>
     <string name="sortBy"> Sort by: </string>
     <string name="view"> View </string>
+    <string name="close"> Close </string>
+    <string name="insert_data_header"> To insert data into a table</string>
+    <string name="insert_data_body"> Make a query string that has this format:
+    INSERT INTO table-name VALUES(value-1, value-2, value-3..)</string>
+    <string name="view_data_header"> To view data of a table</string>
+    <string name="view_data_body"> You can choose how many rows to display in the table and
+    sort by which column and whether you want it to be ascending or descending. This is just
+    a visual to help you make your queries.</string>
 
     <string-array name="numOfRows">
         <item> 10 </item>

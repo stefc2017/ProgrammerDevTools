@@ -1,8 +1,10 @@
 package com.stefancouture.programmerdevtools;
 
+import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -44,4 +46,40 @@ public class SqlMainPage extends AppCompatActivity {
         Intent intent = new Intent(this, ViewTable.class);
         startActivity(intent);
     }
+
+    public void insertInformation(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        //Add the buttons
+        builder.setNeutralButton(R.string.close, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id) {
+                //User clicked the button
+            }//end onClick
+        });//end confirmButton
+
+        builder.setMessage(R.string.insert_data_body)
+                .setTitle(R.string.insert_data_header)
+                .setIcon(R.drawable.info);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }//end insertInformation
+
+    public void viewDataInformation(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        //Add the buttons
+        builder.setNeutralButton(R.string.close, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id) {
+                //User clicked the button
+            }//end onClick
+        });//end confirmButton
+
+        builder.setMessage(R.string.view_data_body)
+                .setTitle(R.string.view_data_header)
+                .setIcon(R.drawable.info);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }//end viewDataInformation
 }
