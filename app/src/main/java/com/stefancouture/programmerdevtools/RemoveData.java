@@ -13,15 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddData extends AppCompatActivity {
-
+public class RemoveData extends AppCompatActivity {
     private DBHelper mydb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String versionNumber;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.insert_data);
+        setContentView(R.layout.remove_data);
 
         mydb = new DBHelper(this);
 
@@ -29,7 +28,7 @@ public class AddData extends AppCompatActivity {
         versionNumber = getPackageVersionNum();
 
         //display on main page
-        TextView mainTxtView = (TextView) findViewById(R.id.insert_data_version);
+        TextView mainTxtView = (TextView) findViewById(R.id.remove_data_version);
         mainTxtView.setText(mainTxtView.getText() + " " + versionNumber);
     }
 
@@ -45,7 +44,7 @@ public class AddData extends AppCompatActivity {
     }
 
     public void save(View view){
-        EditText editText= (EditText) findViewById(R.id.sqlUserStatement);
+        EditText editText= (EditText) findViewById(R.id.sqlUserStatement_remove);
         final String query = editText.getText().toString();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -57,9 +56,9 @@ public class AddData extends AppCompatActivity {
                 boolean isValid;
 
                 //add to database here
-                isValid = mydb.insert(query);
+                isValid = mydb.remove(query);
 
-                Intent intent = new Intent(AddData.this, SqlMainPage.class);
+                Intent intent = new Intent(RemoveData.this, SqlMainPage.class);
                 startActivity(intent);
 
                 showNotification(isValid);
@@ -72,14 +71,13 @@ public class AddData extends AppCompatActivity {
             }//end onClick
         });//end confirmButton
 
-        builder.setMessage(R.string.question_insert_data)
-                .setTitle(R.string.insert_data)
+        builder.setMessage(R.string.question_remove_data)
+                .setTitle(R.string.remove_data)
                 .setIcon(R.drawable.help);
 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
 
     private void showNotification(boolean isValid){
         Context context = getApplicationContext();
@@ -87,13 +85,12 @@ public class AddData extends AppCompatActivity {
         String text = "";
 
         if(isValid)
-            text = "Successfully added to the database";
+            text = "Successfully removed from the database";
         else
-            text = "Unsuccessfully added to the database";
+            text = "Unsuccessfully removed from the database";
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-
     }
 
     public void cancel(View view){
@@ -103,7 +100,7 @@ public class AddData extends AppCompatActivity {
         builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id) {
                 //User clicked confirm
-                Intent intent = new Intent(AddData.this, SqlMainPage.class);
+                Intent intent = new Intent(RemoveData.this, SqlMainPage.class);
                 startActivity(intent);
             }//end onClick
         });//end confirmButton
@@ -114,11 +111,12 @@ public class AddData extends AppCompatActivity {
             }//end onClick
         });//end confirmButton
 
-        builder.setMessage(R.string.question_cancel_insert)
-                .setTitle(R.string.cancel_insert)
+        builder.setMessage(R.string.question_cancel_remove)
+                .setTitle(R.string.cancel_remove)
                 .setIcon(R.drawable.alert);
 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
 }

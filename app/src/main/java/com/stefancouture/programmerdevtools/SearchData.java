@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddData extends AppCompatActivity {
+public class SearchData extends AppCompatActivity {
 
     private DBHelper mydb;
 
@@ -21,7 +21,7 @@ public class AddData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         String versionNumber;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.insert_data);
+        setContentView(R.layout.search_data);
 
         mydb = new DBHelper(this);
 
@@ -29,7 +29,7 @@ public class AddData extends AppCompatActivity {
         versionNumber = getPackageVersionNum();
 
         //display on main page
-        TextView mainTxtView = (TextView) findViewById(R.id.insert_data_version);
+        TextView mainTxtView = (TextView) findViewById(R.id.search_data_version);
         mainTxtView.setText(mainTxtView.getText() + " " + versionNumber);
     }
 
@@ -44,8 +44,8 @@ public class AddData extends AppCompatActivity {
         return version;
     }
 
-    public void save(View view){
-        EditText editText= (EditText) findViewById(R.id.sqlUserStatement);
+    public void search(View view){
+        EditText editText= (EditText) findViewById(R.id.sqlUserStatement_searchData);
         final String query = editText.getText().toString();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -59,7 +59,7 @@ public class AddData extends AppCompatActivity {
                 //add to database here
                 isValid = mydb.insert(query);
 
-                Intent intent = new Intent(AddData.this, SqlMainPage.class);
+                Intent intent = new Intent(SearchData.this, SqlMainPage.class); //TODO change here
                 startActivity(intent);
 
                 showNotification(isValid);
@@ -72,8 +72,8 @@ public class AddData extends AppCompatActivity {
             }//end onClick
         });//end confirmButton
 
-        builder.setMessage(R.string.question_insert_data)
-                .setTitle(R.string.insert_data)
+        builder.setMessage(R.string.question_search_data)
+                .setTitle(R.string.search_data)
                 .setIcon(R.drawable.help);
 
         AlertDialog dialog = builder.create();
@@ -103,7 +103,7 @@ public class AddData extends AppCompatActivity {
         builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id) {
                 //User clicked confirm
-                Intent intent = new Intent(AddData.this, SqlMainPage.class);
+                Intent intent = new Intent(SearchData.this, SqlMainPage.class);
                 startActivity(intent);
             }//end onClick
         });//end confirmButton
@@ -114,8 +114,8 @@ public class AddData extends AppCompatActivity {
             }//end onClick
         });//end confirmButton
 
-        builder.setMessage(R.string.question_cancel_insert)
-                .setTitle(R.string.cancel_insert)
+        builder.setMessage(R.string.question_cancel_search)
+                .setTitle(R.string.cancel_search)
                 .setIcon(R.drawable.alert);
 
         AlertDialog dialog = builder.create();

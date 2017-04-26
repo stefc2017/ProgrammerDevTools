@@ -42,6 +42,16 @@ public class SqlMainPage extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void removeData(View view){
+        Intent intent = new Intent(this, RemoveData.class);
+        startActivity(intent);
+    }
+
+    public void searchData(View view){
+        Intent intent = new Intent(this, SearchData.class);
+        startActivity(intent);
+    }
+
     public void viewTable(View view){
         Intent intent = new Intent(this, ViewTable.class);
         startActivity(intent);
@@ -82,4 +92,40 @@ public class SqlMainPage extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }//end viewDataInformation
+
+    public void removeDataInformation(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        //Add the buttons
+        builder.setNeutralButton(R.string.close, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id) {
+                //User clicked the button
+            }//end onClick
+        });//end confirmButton
+
+        builder.setMessage(R.string.remove_data_body)
+                .setTitle(R.string.remove_data_header)
+                .setIcon(R.drawable.info);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }//end viewDataInformation
+
+    public void searchForDataInformation(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        //Add the buttons
+        builder.setNeutralButton(R.string.close, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id) {
+                //User clicked the button
+            }//end onClick
+        });//end confirmButton
+
+        builder.setMessage(R.string.search_data_body)
+                .setTitle(R.string.search_data_header)
+                .setIcon(R.drawable.info);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }//end searchForDataInformation
 }

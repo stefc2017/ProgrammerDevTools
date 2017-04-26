@@ -9,11 +9,11 @@ import android.util.Log;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "myDatabase.db";
-    private static int versionNumber = 2;
+    private static int versionNumber = 3;
     private static final String STUDENTS_TABLE_NAME = "Students";
-    public static final String STUDENTS_COLUMN_STUDNUM = "student_number";
-    public static final String STUDENTS_COLUMN_FIRSTNAME = "first_name";
-    public static final String STUDENTS_COLUMN_LASTNAME = "last_name";
+    public static final String STUDENTS_COLUMN_STUDNUM = "studNum";
+    public static final String STUDENTS_COLUMN_FIRSTNAME = "fName";
+    public static final String STUDENTS_COLUMN_LASTNAME = "lName";
     public static final String STUDENTS_COLUMN_GPA = "gpa";
 
     public DBHelper(Context context){
@@ -23,8 +23,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
-                "create table Students " +
-                        "(student_number integer primary key, first_name text, last_name text," +
+                "CREATE TABLE IF NOT EXISTS Students " +
+                        "(studNum integer primary key, fName text, lName text," +
                         " gpa double)"
         );
     }//end onCreate
@@ -73,9 +73,9 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
 
         for(int i = 0; i < numberOfRows; i++){
-            items[i].setStudId(cursor.getString(cursor.getColumnIndex("student_number")));
-            items[i].setFirstName(cursor.getString(cursor.getColumnIndex("first_name")));
-            items[i].setLastName(cursor.getString(cursor.getColumnIndex("last_name")));
+            items[i].setStudId(cursor.getString(cursor.getColumnIndex("studNum")));
+            items[i].setFirstName(cursor.getString(cursor.getColumnIndex("fName")));
+            items[i].setLastName(cursor.getString(cursor.getColumnIndex("lName")));
             items[i].setGpa(cursor.getString(cursor.getColumnIndex("gpa")));
 
             cursor.moveToNext();
@@ -88,11 +88,11 @@ public class DBHelper extends SQLiteOpenHelper {
         String result = " ";
 
         if(column.equals("Student #"))
-            result = "student_number";
+            result = "studNum";
         else if(column.equals("First name"))
-            result = "first_name";
+            result = "fName";
         else if(column.equals("Last name"))
-            result = "last_name";
+            result = "lName";
         else if(column.equals("Gpa"))
             result = "gpa";
 
@@ -126,9 +126,34 @@ public class DBHelper extends SQLiteOpenHelper {
 
         String insertQuery = query;
 
-        try{
-        db.execSQL(insertQuery);
-        }catch (Exception e){
+        if(insertQuery.indexOf("DELETE") == -1) {
+            try {
+                db.execSQL(insertQuery);
+            } catch (Exception e) {
+                isValid = false;
+            }
+        }
+        else{
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    public boolean remove(String query){
+        boolean isValid = true;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String removeQuery = query;
+
+        if(removeQuery.indexOf("INSERT") == -1) {
+            try {
+                db.execSQL(removeQuery);
+            } catch (Exception e) {
+                isValid = false;
+            }
+        }
+        else{
             isValid = false;
         }
 

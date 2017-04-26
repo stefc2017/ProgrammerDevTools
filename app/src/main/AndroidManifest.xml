@@ -33,12 +33,20 @@
             android:label="Insert data into table">
         </activity>
 
+        <activity android:name=".RemoveData"
+            android:label="Remove data from table">
+        </activity>
+
         <activity android:name=".ViewTable"
             android:label="View table">
         </activity>
 
         <activity android:name=".ShowTableContents"
             android:label=" Table contents">
+        </activity>
+
+        <activity android:name=".SearchData"
+            android:label=" Search for data in table">
         </activity>
 
     </application>

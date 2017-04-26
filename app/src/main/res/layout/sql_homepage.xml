@@ -62,7 +62,8 @@
         android:layout_marginLeft="44dp"
         android:layout_marginStart="44dp"
         android:drawableLeft="@drawable/search"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:onClick="searchData"/>
 
     <Button android:id="@+id/search_help"
         android:layout_width="30dp"
@@ -71,7 +72,8 @@
         android:paddingBottom="20dp"
         android:layout_marginRight="100dp"
         android:layout_alignBaseline="@+id/searchData"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:onClick="searchForDataInformation"/>
 
     <Button android:id="@+id/addData"
         android:layout_width="154dp"
@@ -110,7 +112,8 @@
         android:layout_marginLeft="44dp"
         android:layout_marginStart="44dp"
         android:drawableLeft="@drawable/delete"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:onClick="removeData"/>
 
     <Button android:id="@+id/remove_help"
         android:layout_width="30dp"
@@ -119,7 +122,8 @@
         android:paddingBottom="20dp"
         android:layout_marginRight="100dp"
         android:layout_alignBaseline="@+id/removeData"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:onClick="removeDataInformation"/>
 
 
 </RelativeLayout>

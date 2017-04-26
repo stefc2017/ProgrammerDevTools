@@ -43,11 +43,11 @@
     <string name="int_word"> Int </string>
     <string name="double_word"> Double </string>
     <string name="string_word"> String </string>
-    <string name="StudNum"> Stud # </string>
-    <string name="Fname"> Fname </string>
-    <string name="Lname"> Lname </string>
+    <string name="StudNum"> studNum </string>
+    <string name="Fname"> fName </string>
+    <string name="Lname"> lName </string>
     <string name="age"> Age </string>
-    <string name="gpa"> GPA </string>
+    <string name="gpa"> gpa </string>
     <string name="rowsToDisplay"> Rows to display: </string>
     <string name="sortBy"> Sort by: </string>
     <string name="view"> View </string>
@@ -59,6 +59,21 @@
     <string name="view_data_body"> You can choose how many rows to display in the table and
     sort by which column and whether you want it to be ascending or descending. This is just
     a visual to help you make your queries.</string>
+    <string name="remove_data_header"> To remove data from a table</string>
+    <string name="remove_data_body"> Make a query string that has this format: DELETE FROM table-name
+    WHERE row has a specific condition.</string>
+    <string name="remove_data"> Remove data</string>
+    <string name="question_remove_data"> Are you sure you want to remove data from this table?</string>
+    <string name="cancel_remove"> Cancel deletion</string>
+    <string name="question_cancel_remove"> Are you sure you want to cancel deleting from this table?</string>
+    <string name="search_data_header"> To search for data in a table</string>
+    <string name="search_data_body"> Make a query string that has this format: SELECT data-value FROM table-name
+    WHERE condition is true. However, you can omit a part of the query string such as the FROM clause or the
+    WHERE clause.</string>
+    <string name="search_data"> Search for data </string>
+    <string name="question_search_data"> Are you sure you want to search for data in this table? </string>
+    <string name="cancel_search"> Cancel Search</string>
+    <string name="question_cancel_search"> Are you sure you want to cancel searching from this table?</string>
 
     <string-array name="numOfRows">
         <item> 10 </item>
