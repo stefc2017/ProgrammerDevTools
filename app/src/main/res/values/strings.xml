@@ -68,8 +68,7 @@
     <string name="question_cancel_remove"> Are you sure you want to cancel deleting from this table?</string>
     <string name="search_data_header"> To search for data in a table</string>
     <string name="search_data_body"> Make a query string that has this format: SELECT data-value FROM table-name
-    WHERE condition is true. However, you can omit a part of the query string such as the FROM clause or the
-    WHERE clause.</string>
+    WHERE condition is true. However, you can omit a part of the query string such as the WHERE clause.</string>
     <string name="search_data"> Search for data </string>
     <string name="question_search_data"> Are you sure you want to search for data in this table? </string>
     <string name="cancel_search"> Cancel Search</string>

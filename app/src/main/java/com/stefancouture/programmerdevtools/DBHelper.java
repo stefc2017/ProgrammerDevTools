@@ -159,4 +159,43 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return isValid;
     }
+
+    public ListItems[] search(String query){
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numberOfRows = 0;
+        ListItems [] items = new ListItems[1];
+        items = initialize(items, 1);
+
+        String searchQuery = query;
+
+        if(searchQuery.indexOf("INSERT") == -1 && searchQuery.indexOf("DELETE") == -1) {
+            try {
+                Cursor cursor = db.rawQuery(searchQuery,null);
+
+                numberOfRows = cursor.getCount();
+
+                items = new ListItems[numberOfRows];
+                items = initialize(items, numberOfRows);
+
+                cursor.moveToFirst();
+
+                for(int i = 0; i < numberOfRows; i++){
+                    items[i].setStudId(cursor.getString(cursor.getColumnIndex("studNum")));
+                    items[i].setFirstName(cursor.getString(cursor.getColumnIndex("fName")));
+                    items[i].setLastName(cursor.getString(cursor.getColumnIndex("lName")));
+                    items[i].setGpa(cursor.getString(cursor.getColumnIndex("gpa")));
+                    cursor.moveToNext();
+                }
+                cursor.close();
+                items[0].setIsValid(true);
+            } catch (Exception e) {
+                items[0].setIsValid(false);
+            }
+        }
+        else{
+            items[0].setIsValid(false);
+        }
+
+        return items;
+    }
 }

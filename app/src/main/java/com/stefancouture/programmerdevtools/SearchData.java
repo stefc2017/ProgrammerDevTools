@@ -54,15 +54,15 @@ public class SearchData extends AppCompatActivity {
         builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id) {
                 //User clicked confirm
-                boolean isValid;
+                ListItems [] items;
 
                 //add to database here
-                isValid = mydb.insert(query);
+                items = mydb.search(query);
 
                 Intent intent = new Intent(SearchData.this, SqlMainPage.class); //TODO change here
                 startActivity(intent);
 
-                showNotification(isValid);
+                showNotification(items[0].getIsValid());
             }//end onClick
         });//end confirmButton
 
@@ -87,9 +87,9 @@ public class SearchData extends AppCompatActivity {
         String text = "";
 
         if(isValid)
-            text = "Successfully added to the database";
+            text = "Successfully searched in database";
         else
-            text = "Unsuccessfully added to the database";
+            text = "Unsuccessfully searched in database";
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();

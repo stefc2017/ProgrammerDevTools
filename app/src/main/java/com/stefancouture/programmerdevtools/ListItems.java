@@ -6,6 +6,7 @@ public class ListItems {
     private String firstName;
     private String lastName;
     private String gpa;
+    private boolean isValid; //used to determine whether or not the search was successful
 
 
     public ListItems(){
@@ -27,17 +28,26 @@ public class ListItems {
         this.gpa = gpa;
     }
 
+    public void setIsValid(boolean isValid){
+        this.isValid = isValid;
+    }
+
     public String getStudId() {
         return studId;
     }
+
     public String getFirstName() {
         return firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public String getGpa() {
         return gpa;
     }
+
+    public boolean getIsValid() {return isValid;}
 
 }
