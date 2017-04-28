@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class SearchData extends AppCompatActivity {
 
     private DBHelper mydb;
+    private TableInformation tableInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class SearchData extends AppCompatActivity {
         setContentView(R.layout.search_data);
 
         mydb = new DBHelper(this);
+        tableInfo = new TableInformation();
 
         //get versionNumber
         versionNumber = getPackageVersionNum();
@@ -59,7 +61,8 @@ public class SearchData extends AppCompatActivity {
                 //add to database here
                 items = mydb.search(query);
 
-                Intent intent = new Intent(SearchData.this, SqlMainPage.class); //TODO change here
+                Intent intent = new Intent(SearchData.this, DisplayData.class); 
+                tableInfo.setListItems(items);
                 startActivity(intent);
 
                 showNotification(items[0].getIsValid());

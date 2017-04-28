@@ -7,6 +7,7 @@ public class TableInformation {
     private static int indexOfLastData; //index of last data shown in table on the page
     private static String columnSortBy;
     private static String order;
+    private static ListItems [] listItems;
 
     public TableInformation(){}
 
@@ -17,6 +18,15 @@ public class TableInformation {
     public void setIndexOfLastData(int index){
         indexOfLastData = index;
     }
+
+    public ListItems [] getListItems(){
+        return listItems;
+    }
+
+    public void setListItems(ListItems [] items){
+        listItems = items;
+    }
+
     public String getcolumnSortBy(){
         return columnSortBy;
     }

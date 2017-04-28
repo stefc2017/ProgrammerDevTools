@@ -174,16 +174,31 @@ public class DBHelper extends SQLiteOpenHelper {
 
                 numberOfRows = cursor.getCount();
 
-                items = new ListItems[numberOfRows];
-                items = initialize(items, numberOfRows);
+                if(numberOfRows == 0) {
+                    items = new ListItems[numberOfRows+1];
+                    items = initialize(items, numberOfRows+1);
+                }//end if
+                else {
+                    items = new ListItems[numberOfRows];
+                    items = initialize(items, numberOfRows);
+                }//end else
 
                 cursor.moveToFirst();
 
                 for(int i = 0; i < numberOfRows; i++){
-                    items[i].setStudId(cursor.getString(cursor.getColumnIndex("studNum")));
-                    items[i].setFirstName(cursor.getString(cursor.getColumnIndex("fName")));
-                    items[i].setLastName(cursor.getString(cursor.getColumnIndex("lName")));
-                    items[i].setGpa(cursor.getString(cursor.getColumnIndex("gpa")));
+                    if(cursor.getColumnIndex("studNum") != -1) {
+                        items[i].setStudId(cursor.getString(cursor.getColumnIndex("studNum")));
+                    }
+                    if(cursor.getColumnIndex("fName") != -1) {
+                        items[i].setFirstName(cursor.getString(cursor.getColumnIndex("fName")));
+                    }
+                    if(cursor.getColumnIndex("lName") != -1) {
+                        items[i].setLastName(cursor.getString(cursor.getColumnIndex("lName")));
+                    }
+                    if(cursor.getColumnIndex("gpa") != -1) {
+                        items[i].setGpa(cursor.getString(cursor.getColumnIndex("gpa")));
+                    }
+
                     cursor.moveToNext();
                 }
                 cursor.close();

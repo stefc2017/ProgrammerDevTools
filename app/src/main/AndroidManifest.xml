@@ -49,6 +49,9 @@
             android:label=" Search for data in table">
         </activity>
 
+        <activity android:name=".DisplayData"
+            android:label=" Search Results">
+        </activity>
     </application>
 
 </manifest>

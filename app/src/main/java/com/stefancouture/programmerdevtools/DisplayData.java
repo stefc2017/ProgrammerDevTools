@@ -7,46 +7,31 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class ShowTableContents extends AppCompatActivity {
+public class DisplayData extends AppCompatActivity {
 
-    private DBHelper mydb;
+//    private DBHelper mydb;
     private TableInformation tableInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.show_table_contents);
-        setTitle("Table: Students"); //will use in the future when >1 table //sets the action bar title
+        setContentView(R.layout.display_data);
 
         String versionNumber;
-        String column;
-        String order;
-        int rows;
 
-
-        mydb = new DBHelper(this);
         tableInfo = new TableInformation();
 
-        column = tableInfo.getcolumnSortBy();
-        order = tableInfo.getOrder();
-        rows = tableInfo.getDisplayNumber();
+        ListItems [] items = tableInfo.getListItems();
 
-        ListItems [] items = mydb.getAllSortedBy(column, order);
-
-        tableInfo.setLengthOfData(items.length); //set the length of how many entries in table
-
-        TableLayout layout = (TableLayout) findViewById(R.id.table_view);
+        TableLayout layout = (TableLayout) findViewById(R.id.table_display_data);
         layout.setStretchAllColumns(true);
-
+//here
         int textSize = 20; //size for the text
 
         //header
@@ -83,12 +68,9 @@ public class ShowTableContents extends AppCompatActivity {
 
         layout.addView(tr);
 
-        int counter = 0; //to determine how many rows we have created
-        int i = tableInfo.getStart();
         int numOfElements = items.length;
-        int length = rows;
 
-        while( i < numOfElements && counter < length){ //TODO change length
+        for(int i = 0; i < numOfElements; i++){
             tr = new TableRow(this); //make a row
 
             c1 = new TextView(this); //column 1
@@ -96,7 +78,7 @@ public class ShowTableContents extends AppCompatActivity {
             c3 = new TextView(this); //column 3
             c4 = new TextView(this); //column 4
 
-            if(counter % 2 == 0){
+            if(i % 2 == 0){
                 c1.setText(items[i].getStudId());
                 c1.setBackgroundResource(R.color.beige);
                 c1.setTextSize(textSize);
@@ -138,40 +120,14 @@ public class ShowTableContents extends AppCompatActivity {
 
             //add row to table
             layout.addView(tr);
-
-
-            i++;
-            counter++;
         }
-
-        tableInfo.setIndexOfLastData(i);
-        enableDisableButtons(tableInfo.getStart(), tableInfo.getIndexOfLastData(), items.length); //enables/disables buttons if needed
 
         //get versionNumber
         versionNumber = getPackageVersionNum();
 
         //display on ShowTableContents page
-        TextView textView = (TextView) findViewById(R.id.table_contents_version);
+        TextView textView = (TextView) findViewById(R.id.display_data_version);
         textView.setText(textView.getText() + " " + versionNumber);
-    }
-
-    /*
-    start = is first position of next data to display
-    length = is total number of data in table
-    */
-    public void enableDisableButtons(int start, int indexLastData,int length){
-        //buttons
-        Button left = (Button) findViewById(R.id.button_left_tableContents);
-        Button right = (Button) findViewById(R.id.button_right_tableContents);
-
-        if(indexLastData >= length){
-            right.setEnabled(false);
-        }
-
-        if(start == 0){
-            Log.d("here", "here");
-            left.setEnabled(false);
-        }
     }
 
     public String getPackageVersionNum() {
@@ -186,7 +142,7 @@ public class ShowTableContents extends AppCompatActivity {
     }
 
     public void next(View view){
-        Intent intent = new Intent(ShowTableContents.this, ShowTableContents.class);
+        Intent intent = new Intent(DisplayData.this, DisplayData.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 
         int rows = tableInfo.getDisplayNumber(); //get the number of rows user wants to see
@@ -198,7 +154,7 @@ public class ShowTableContents extends AppCompatActivity {
     }
 
     public void previous(View view){
-        Intent intent = new Intent(ShowTableContents.this, ShowTableContents.class);
+        Intent intent = new Intent(DisplayData.this, DisplayData.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 
         int rows = tableInfo.getDisplayNumber(); //get the number of rows user wants to see
