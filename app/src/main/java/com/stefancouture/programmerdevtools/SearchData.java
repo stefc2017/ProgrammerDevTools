@@ -61,7 +61,7 @@ public class SearchData extends AppCompatActivity {
                 //add to database here
                 items = mydb.search(query);
 
-                Intent intent = new Intent(SearchData.this, DisplayData.class); 
+                Intent intent = new Intent(SearchData.this, DisplayData.class);
                 tableInfo.setListItems(items);
                 startActivity(intent);
 
