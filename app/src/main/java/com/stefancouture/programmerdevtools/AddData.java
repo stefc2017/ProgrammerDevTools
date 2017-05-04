@@ -93,7 +93,7 @@ public class AddData extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-
+ 
     }
 
     public void cancel(View view){
