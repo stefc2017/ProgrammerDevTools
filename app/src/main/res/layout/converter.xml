@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_converter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.stefancouture.programmerdevtools.DisplayConverter">
+
+    <EditText android:id="@+id/message"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint = "@string/enter_here"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:inputType = "textMultiLine"
+        android:maxLines="2"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="@string/convert"
+        android:onClick="convert"
+        android:id="@+id/button"
+        android:layout_alignBottom="@+id/message"
+        android:layout_alignRight="@+id/rightSide"
+        android:layout_alignEnd="@+id/rightSide" />
+
+    <TextView android:id="@+id/textLeft"
+        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/ConvertFrom"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textLeft"
+        android:id="@+id/leftSide"
+        android:checkedButton="@+id/binary_left">
+
+        <RadioButton android:id="@+id/binary_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/binary"
+            />
+        <RadioButton android:id="@+id/decimal_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/decimal"
+            />
+        <RadioButton android:id="@+id/hexadecimal_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hexadecimal"
+            />
+</RadioGroup>
+
+    <TextView android:id="@+id/textRight"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/ConvertTo"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textRight"
+        android:layout_marginLeft="200dp"
+        android:id="@+id/rightSide"
+        android:checkedButton="@+id/hexadecimal_right">
+
+        <RadioButton android:id="@+id/binary_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/binary"
+            android:onClick="setVisible"
+            />
+        <RadioButton android:id="@+id/decimal_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/decimal"
+            android:onClick="hide"
+            />
+        <RadioButton android:id="@+id/hexadecimal_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hexadecimal"
+            android:onClick="hide"
+            />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/leftSide"
+        android:layout_alignRight="@+id/textRight"
+        android:layout_alignEnd="@+id/textRight"
+        android:layout_marginTop="80dp"
+        android:id="@+id/linearLayout2">
+    </LinearLayout>
+
+    <TextView android:id="@+id/numBits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="120dp"
+        android:text="@string/selectNumBits"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox8"
+            android:text="@string/eight"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox16"
+            android:text="@string/sixteen"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox32"
+            android:text="@string/thirtytwo"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox64"
+            android:text="@string/sixtyfour"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/answer"
+            android:id="@+id/textView"
+            android:layout_alignTop="@+id/linearLayout2"
+            android:paddingLeft="40dp" />
+
+        <TextView android:id="@+id/answer"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:paddingLeft="40dp"/>
+    </LinearLayout>
+
+    <TextView android:id="@+id/converterVersion"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:text="@string/version"/>
+</RelativeLayout>

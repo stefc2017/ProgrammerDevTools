@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar"> <!-- for splash page -->
+        <item name="android:windowBackground"> @drawable/splash </item>
+    </style>
+
+    <!-- buttons -->
+    <style name="primaryButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="infoButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/gray</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="addButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/green</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="removeButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/red</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="searchButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/lightblue</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>

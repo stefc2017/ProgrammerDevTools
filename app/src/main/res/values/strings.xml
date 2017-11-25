@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">Programmer Dev Tools</string>
+    <string name="enter_here">Enter here</string>
+    <string name="convert">Convert </string>
+    <string name="answer">Answer:   </string>
+    <string name="ConvertFrom"> Convert From </string>
+    <string name="ConvertTo"> Convert To </string>
+    <string name="binary"> Binary </string>
+    <string name="decimal"> Decimal </string>
+    <string name="hexadecimal"> Hexadecimal </string>
+    <string name="selectNumBits"> Select the number of bits for displaying the answer</string>
+    <string name="eight"> 8 </string>
+    <string name="sixteen"> 16 </string>
+    <string name="thirtytwo"> 32 </string>
+    <string name="sixtyfour"> 64 </string>
+    <string name="decbinhexconverter"> DecBinHex Converter </string>
+    <string name="sqlsimulator"> SQL simulator </string>
+    <string name="version"> Version: </string>
+    <string name="sql_description"> The SQL simulator is where programmers can practice coding SQL
+    and see how their code comes to life. This is used for studying purposes as well to understand
+    the basics of how and when to use SQL for databases. As more recent versions come out, more and
+    more features will be available. Study hard and have fun! </string>
+    <string name="createTable">Create a table</string>
+    <string name="viewTable">View table</string>
+    <string name="addData">Insert data</string>
+    <string name="removeData">Remove data</string>
+    <string name="table_name"> Table name: </string>
+    <string name="sqlStatement"> SQL query: </string>
+    <string name="save"> Save </string>
+    <string name="cancel"> Cancel </string>
+    <string name="insert_data"> Insert data </string>
+    <string name="question_insert_data"> Are you sure you want to insert data in this table? </string>
+    <string name="confirm"> Confirm </string>
+    <string name="question_cancel_insert"> Are you sure you want to cancel inserting into this table?</string>
+    <string name="cancel_insert"> Cancel insertion</string>
+    <string name="question_cancel_viewTable"> Are you sure you want to cancel trying to view this table?</string>
+    <string name="cancel_viewTable"> Cancel viewing table</string>
+    <string name="question_confirm_viewTable"> Are you sure you want to view this table?</string>
+    <string name="confirm_viewTable"> Confirm view table</string>
+    <string name="searchData"> Search </string>
+    <string name="students"> Students </string>
+    <string name="tablecontents"> <u> Table contents </u> </string>
+    <string name="int_word"> Int </string>
+    <string name="double_word"> Double </string>
+    <string name="string_word"> String </string>
+    <string name="StudNum"> studNum </string>
+    <string name="Fname"> fName </string>
+    <string name="Lname"> lName </string>
+    <string name="age"> Age </string>
+    <string name="gpa"> gpa </string>
+    <string name="rowsToDisplay"> Rows to display: </string>
+    <string name="sortBy"> Sort by: </string>
+    <string name="view"> View </string>
+    <string name="close"> Close </string>
+    <string name="insert_data_header"> To insert data into a table</string>
+    <string name="insert_data_body"> Make a query string that has this format:
+    INSERT INTO table-name VALUES(value-1, value-2, value-3..)</string>
+    <string name="view_data_header"> To view data of a table</string>
+    <string name="view_data_body"> You can choose how many rows to display in the table and
+    sort by which column and whether you want it to be ascending or descending. This is just
+    a visual to help you make your queries.</string>
+    <string name="remove_data_header"> To remove data from a table</string>
+    <string name="remove_data_body"> Make a query string that has this format: DELETE FROM table-name
+    WHERE row has a specific condition.</string>
+    <string name="remove_data"> Remove data</string>
+    <string name="question_remove_data"> Are you sure you want to remove data from this table?</string>
+    <string name="cancel_remove"> Cancel deletion</string>
+    <string name="question_cancel_remove"> Are you sure you want to cancel deleting from this table?</string>
+    <string name="search_data_header"> To search for data in a table</string>
+    <string name="search_data_body"> Make a query string that has this format: SELECT data-value FROM table-name
+    WHERE condition is true. However, you can omit a part of the query string such as the WHERE clause.</string>
+    <string name="search_data"> Search for data </string>
+    <string name="question_search_data"> Are you sure you want to search for data in this table? </string>
+    <string name="cancel_search"> Cancel Search</string>
+    <string name="question_cancel_search"> Are you sure you want to cancel searching from this table?</string>
+
+    <string-array name="numOfRows">
+        <item> 10 </item>
+        <item> 25 </item>
+        <item> 50 </item>
+        <item> 100 </item>
+    </string-array>
+
+    <string-array name="students_columns">
+        <item> Student #</item>
+        <item> First name </item>
+        <item> Last name </item>
+        <item> Gpa </item>
+    </string-array>
+
+    <string-array name="ascDesc">
+        <item> Ascending </item>
+        <item> Descending </item>
+    </string-array>
+</resources>
